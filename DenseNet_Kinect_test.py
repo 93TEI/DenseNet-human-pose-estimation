@@ -131,17 +131,17 @@ sess.run(tf.global_variables_initializer())
 
 saver.restore(sess, "where you saved your madel")
 
-Des_result = np.ones(image_number*22).reshape(image_number,22)
+Des_result = np.ones(image_number*22).reshape(image_number, 22)
 time1 = time.time()
 for i in range(0, image_number):
-    image_data = image[i].reshape((1,200,200,3))
-    Des_result[i] = sess.run(pred,feed_dict={images_source:image_data})
+    image_data = image[i].reshape((1, 200, 200, 3))
+    Des_result[i] = sess.run(pred, feed_dict={images_source:image_data})
 time2 = time.time()
-print 'done'
-print ('initial_time',time1 - time0)
-print ('total_time',time2 - time1)
+print('done')
+print('initial_time', time1 - time0)
+print('total_time', time2 - time1)
 # save data
-scio.savemat('save your result as a .mat file',{'Des_result':Des_result})
+scio.savemat('save your result as a .mat file', {'Des_result': Des_result})
 
 
  
